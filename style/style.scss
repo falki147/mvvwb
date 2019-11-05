@@ -1,0 +1,102 @@
+@import 'variables';
+@import 'header';
+@import 'home';
+@import 'posts';
+@import 'footer';
+
+body {
+    margin: 0;
+    background-color: $background-color;
+    max-width: $max-width;
+    margin: 0 auto;
+    color: $color;
+    font-family: $default-font;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 28.5px;
+    hyphens: auto;
+}
+
+h1, h2, h3 {
+    font-family: $title-font;
+    color: $title-color;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-weight: 400;
+}
+
+h2, h3 {
+    font-weight: 300;
+}
+
+h1, h2, h3 {
+    a {
+        color: $title-color;
+
+        &:hover, &:focus {
+            color: $title-hover-color;
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+    color: $link-color;
+    transition: color 0.2s linear;
+
+    &:hover, &:focus {
+        color: $link-hover-color;
+    }
+}
+
+strong {
+    color: $highlight-color;
+    font-weight: bold;
+}
+
+ul {
+    position: relative;
+    padding-left: 15px;
+}
+
+li {
+    list-style: none;
+
+    &::before {
+        content: "\2022";
+        color: $list-color;
+        font-weight: bold;
+        position: absolute;
+        left: 5px;
+    }
+}
+
+.skiplink {
+    position: absolute;
+    left: -9999px;
+    transition: transform 0.25s ease;
+    transform: translateX(-300px);
+    margin: 5px;
+    color: black;
+
+    &:focus {
+        left: 0;
+        transform: translateX(0);
+        color: black;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        background: white;
+        left: 0;
+        right: 0;
+        width: 100px;
+        height: 400px;
+        transform: translate(10px, -200px) rotate(70deg);
+        box-shadow: 0 0 10px black;
+        z-index: -1;
+    }
+}

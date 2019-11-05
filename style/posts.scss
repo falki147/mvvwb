@@ -1,0 +1,164 @@
+.posts {
+    background-color: $content-background-color;
+    padding: 60px $padding-side 60px $padding-side;
+
+    .post {
+        &:not(:first-child) {
+            padding-top: 60px;
+        }
+
+        .wp-post-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        > .wp-post-image, > a {
+            display: block;
+        }
+
+        .post-content {
+            position: relative;
+
+            &.has-thumbnail {
+                padding-top: 40px;
+            }
+
+            &.post-has-date {
+                $padding-date: 75px;
+                padding-left: $padding-date;
+
+                .gallery {
+                    position: relative;
+                    left: -$padding-date / 2;
+                    right: 0;
+                }
+            }
+
+            .post-title {
+                margin: 0 0 22px 0;
+                font-size: 42px;
+                line-height: 0.8;
+            }
+
+            .title-break {
+                width: 100px;
+                border-bottom: 1px solid #ddd;
+                margin: 0;
+            }
+
+            .post-info {
+                color: #aaaaaa;
+                font-size: 11px;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                font-family: Arial, Helvetica, sans-serif;
+                margin-top: 5px;
+            }
+
+            .post-date {
+                position: absolute;
+                left: 0;
+                color: white;
+                background: #db4a37;
+                width: 44px;
+                height: 44px;
+                padding-top: 3px;
+                text-transform: uppercase;
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 1.15;
+                text-align: center;
+                margin: 0;
+                font-family: 'Raleway', Arial, sans-serif;
+
+                span {
+                    font-size: 14px;
+                    display: block;
+                }
+            }
+
+            .post-date-mobile {
+                display: none;
+            }
+
+            p {
+                color: #888888;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 15px;
+                font-weight: 300;
+                line-height: 28.5px;
+            }
+
+            > * {
+                margin: 29px 0 0 0;
+            }
+
+            .post-continue {
+                color: #db4a37;
+                text-transform: uppercase;
+                border: 1px solid #db4a37;
+                text-decoration: none;
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 30px;
+                text-align: center;
+                display: inline-block;
+                padding: 0 25px;
+                transition: color 0.2s linear, border-color 0.2s linear;
+    
+                &:hover, &:focus {
+                    border-color: #272727;
+                    color: #272727;
+                }
+            }
+        }
+    }
+
+    .pagination {
+        padding-top: 50px;
+        padding-left: 10px;
+    }
+
+    @media only screen and (max-width: $breakpoint-tablet) {
+        padding: 0 0 40px 0;
+
+        .post .post-content {
+            &:not(.has-thumbnail) {
+                padding-top: 40px;
+            }
+
+            padding: 0;
+            margin: 0 $padding-side;
+        }
+    }
+
+    @media only screen and (max-width: $breakpoint-mobile) {
+        .post {
+            .post-content {
+                margin: 0 $padding-side-mobile;
+
+                &.post-has-date {
+                    padding-left: 0;
+
+                    .gallery {
+                        position: static;
+                    }
+                }
+
+                .post-title {
+                    font-size: 24px;
+                    line-height: 1.2;
+                }
+
+                .post-date {
+                    display: none;
+                }
+
+                .post-date-mobile {
+                    display: inline;
+                }
+            }
+        }
+    }
+}

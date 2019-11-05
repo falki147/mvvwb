@@ -1,0 +1,72 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-10-12T14:09:23+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.3.0\n"
+"X-Domain: mvvwb\n"
+
+#: AdminViews/LocationMetaboxView.php:2
+#: LocationMetabox.php:11
+msgid "Location"
+msgstr "Ort"
+
+#: Controller/PostsController.php:44
+msgid "Back"
+msgstr "Zurück"
+
+#: Controller/PostsController.php:45
+msgid "Forward"
+msgstr "Weiter"
+
+#: RegisterHelper.php:9
+msgid "Header Menu"
+msgstr "Headermenu"
+
+#: RegisterHelper.php:10
+#: Views/HomeView.php:10
+msgid "Home Menu"
+msgstr "Homemenu"
+
+#: RegisterHelper.php:11
+msgid "Footer Menu"
+msgstr "Footermenu"
+
+#: RegisterHelper.php:19
+msgid "MVVWB Post Image"
+msgstr "MVVWB Post Bild"
+
+#: RegisterHelper.php:26
+msgid "Home"
+msgstr "Home"
+
+#: Views/HeaderView.php:9
+msgid "Open Menu"
+msgstr "Menü öffnen"
+
+#: Views/HeaderView.php:13
+msgid "Main Menu"
+msgstr "Hauptmenu"
+
+#: Views/HomeView.php:20
+#: Views/PostsView.php:57
+msgid "Continue..."
+msgstr "Weiter..."
+
+#: Views/MainView.php:13
+msgid "Go to Content"
+msgstr "Zum Inhalt springen"
+
+#: Views/PostsView.php:3
+msgid "Post"
+msgstr "Beitrag"
+
+#: Views/PostsView.php:9
+msgid "Go to Post"
+msgstr "Zum Beitrag gehen"
