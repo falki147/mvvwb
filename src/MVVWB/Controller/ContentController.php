@@ -7,7 +7,7 @@ class ContentController {
         echo '<main id="main">';
 
         if (is_404())
-            HomeController::render();
+            NotFoundController::render();
         elseif (is_home())
             HomeController::render();
         else

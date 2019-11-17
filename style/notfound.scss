@@ -1,0 +1,19 @@
+.not-found {
+    padding: 70px $padding-side;
+    background-color: #db4a37;
+    color: #ffffff;
+
+    .title {
+        margin: 0 0 25px 0;
+        color: #ffffff;
+        text-transform: uppercase;
+        font-size: 64px;
+        font-weight: 300;
+        line-height: 1.0;
+    }
+
+    .title-break {
+        width: 100px;
+        border-bottom: 1px solid #ffffff;
+    }
+}

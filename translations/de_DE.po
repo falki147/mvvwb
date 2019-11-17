@@ -63,6 +63,14 @@ msgstr "Weiter..."
 msgid "Go to Content"
 msgstr "Zum Inhalt springen"
 
+#: Views/NotFoundView.php:2
+msgid "404 - Not Found"
+msgstr "404 - Seite nicht gefunden"
+
+#: Views/NotFoundView.php:5
+msgid "It appears the page you were looking for doesn't exist. Sorry about that."
+msgstr "Es scheint, als ob die Seite die Sie öffnen wollten nicht existiert. Wir entschuldigen uns."
+
 #: Views/PostsView.php:3
 msgid "Post"
 msgstr "Beitrag"
