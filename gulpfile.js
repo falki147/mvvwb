@@ -1,5 +1,7 @@
 const { src, dest, parallel, watch } = require("gulp");
 const autoprefixer = require("autoprefixer");
+const browserify = require("browserify");
+const buffer = require("vinyl-buffer");
 const concat = require("gulp-concat");
 const gettextParser = require("gettext-parser");
 const minifyCSS = require("gulp-csso");
@@ -7,6 +9,7 @@ const minimist = require("minimist");
 const postcss = require("gulp-postcss");
 const rename = require("gulp-rename");
 const sass = require("gulp-sass");
+const source = require("vinyl-source-stream");
 const sourcemaps = require("gulp-sourcemaps");
 const through = require("through2");
 const uglify = require("gulp-uglify");
@@ -57,14 +60,19 @@ function css() {
 }
 
 function js() {
-    let stream = src(jsSources);
+    const b = browserify({
+        entries: "./js/index.js",
+        debug: env === "development"
+    });
+
+    let stream = b.bundle()
+        .pipe(source("index.js"))
+        .pipe(buffer());
 
     if (writeSourcemap)
         stream = stream.pipe(sourcemaps.init());
 
-    stream = stream
-        .pipe(concat("index.js"))
-        .pipe(uglify());
+    stream = stream.pipe(uglify());
 
     if (writeSourcemap)
         stream = stream.pipe(sourcemaps.write("./"));
