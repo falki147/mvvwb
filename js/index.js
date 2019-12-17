@@ -1,62 +1,65 @@
-(function (document) {
-    function getChildrenHeight(element) {
-        var height = 0;
+var LazyLoad = require("vanilla-lazyload");
 
-        for (var i = 0; i < element.children.length; ++i)
-            height += element.children[i].offsetHeight;
+function getChildrenHeight(element) {
+    var height = 0;
 
-        return height;
+    for (var i = 0; i < element.children.length; ++i)
+        height += element.children[i].offsetHeight;
+
+    return height;
+}
+
+function openMenu() {
+    var navigationMenu = document.getElementById("navigation");
+    var isActive = navigationMenu.classList.contains("navigation-opened");
+
+    if (isActive) {
+        navigationMenu.classList.remove("navigation-opened");
+        navigationMenu.style.height = "0";
+    }
+    else {
+        navigationMenu.classList.add("navigation-opened");
+        updateNavigationMenu();
+        navigationMenu.style.height = getChildrenHeight(navigationMenu) + "px";
     }
 
-    function openMenu() {
-        var navigationMenu = document.getElementById("navigation");
-        var isActive = navigationMenu.classList.contains("navigation-opened");
+    var buttons = document.querySelectorAll(".header .navigation-button-mobile");
 
-        if (isActive) {
-            navigationMenu.classList.remove("navigation-opened");
-            navigationMenu.style.height = "0";
-        }
-        else {
-            navigationMenu.classList.add("navigation-opened");
-            updateNavigationMenu();
-            navigationMenu.style.height = getChildrenHeight(navigationMenu) + "px";
-        }
-
-        var buttons = document.querySelectorAll(".header .navigation-button-mobile");
-
-        for (var i = 0; i < buttons.length; ++i) {
-            if (isActive)
-                buttons[i].classList.remove("navigation-opened");
-            else
-                buttons[i].classList.add("navigation-opened");
-        }
-    }
-
-    function updateNavigationMenu() {
-        var navigationMenu = document.getElementById("navigation");
-
-        if (navigationMenu.classList.contains("navigation-opened"))
-            navigationMenu.classList.add("navigation-show");
+    for (var i = 0; i < buttons.length; ++i) {
+        if (isActive)
+            buttons[i].classList.remove("navigation-opened");
         else
-            navigationMenu.classList.remove("navigation-show");
+            buttons[i].classList.add("navigation-opened");
+    }
+}
+
+function updateNavigationMenu() {
+    var navigationMenu = document.getElementById("navigation");
+
+    if (navigationMenu.classList.contains("navigation-opened"))
+        navigationMenu.classList.add("navigation-show");
+    else
+        navigationMenu.classList.remove("navigation-show");
+}
+
+function init() {
+    var buttons = document.querySelectorAll(".header .navigation-button-mobile");
+
+    for (var i = 0; i < buttons.length; ++i) {
+        buttons[i].removeEventListener("click", openMenu);
+        buttons[i].addEventListener("click", openMenu);
     }
 
-    function init() {
-        var buttons = document.querySelectorAll(".header .navigation-button-mobile");
+    var navigationMenu = document.getElementById("navigation");
 
-        for (var i = 0; i < buttons.length; ++i) {
-            buttons[i].removeEventListener("click", openMenu);
-            buttons[i].addEventListener("click", openMenu);
-        }
-
-        var navigationMenu = document.getElementById("navigation");
-
-        if (navigationMenu) {
-            navigationMenu.removeEventListener("transitionend", updateNavigationMenu);
-            navigationMenu.addEventListener("transitionend", updateNavigationMenu);
-        }
+    if (navigationMenu) {
+        navigationMenu.removeEventListener("transitionend", updateNavigationMenu);
+        navigationMenu.addEventListener("transitionend", updateNavigationMenu);
     }
 
-    document.addEventListener("DOMContentLoaded", init);
-    init();
-})(document);
+    new LazyLoad({
+        elements_selector: ".lazy"
+    });
+}
+
+document.addEventListener("DOMContentLoaded", init);

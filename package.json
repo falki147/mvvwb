@@ -11,7 +11,8 @@
   "dependencies": {
     "daterangepicker": "^3.0.5",
     "hammerjs": "^2.0.8",
-    "moment-timezone": "^0.5.26"
+    "moment-timezone": "^0.5.26",
+    "vanilla-lazyload": "^12.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^9.6.1",

@@ -22,8 +22,10 @@ class PostsController {
 
             $content = ob_get_clean();
 
+            $thumbnail = has_post_thumbnail() ? get_the_post_thumbnail(null, 'mvvwb-post') : '';
+
             $postData = [
-                'thumbnail' => has_post_thumbnail() ? get_the_post_thumbnail(null, 'mvvwb-post') : '',
+                'thumbnail' => self::filterThumbnail($thumbnail),
                 'link'      => get_permalink(),
                 'title'     => get_the_title(),
                 'location'  => LocationHelper::getLocation($postObject),
@@ -46,5 +48,19 @@ class PostsController {
         ]);
 
         include MVVWB_TEMPLATE_VIEWS . 'PostsView.php';
+    }
+
+    private static function filterThumbnail($thumbnail) {
+        $thumbnail = preg_replace_callback(
+            '/(<img[^<]*)src=\"([^"]*)\"(.*>)/',
+            function ($matches) {
+                return $matches[1] . 'data-src="' . $matches[2] . '"' . $matches[3];
+            },
+            $thumbnail
+        );
+
+        return preg_replace_callback('/(<img[^<]*)class=\"([^"]*)\"(.*>)/', function ($matches) {
+            return $matches[1] . 'class="' . $matches[2] . ' lazy"' . $matches[3];
+        }, $thumbnail);
     }
 }
