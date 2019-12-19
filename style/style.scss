@@ -82,6 +82,7 @@ li {
     transform: translateX(-300px);
     margin: 5px;
     color: black;
+    z-index: 1;
 
     &:focus {
         left: 0;
