@@ -45,17 +45,13 @@ function updateNavigationMenu() {
 function init() {
     var buttons = document.querySelectorAll(".header .navigation-button-mobile");
 
-    for (var i = 0; i < buttons.length; ++i) {
-        buttons[i].removeEventListener("click", openMenu);
+    for (var i = 0; i < buttons.length; ++i)
         buttons[i].addEventListener("click", openMenu);
-    }
 
     var navigationMenu = document.getElementById("navigation");
 
-    if (navigationMenu) {
-        navigationMenu.removeEventListener("transitionend", updateNavigationMenu);
+    if (navigationMenu)
         navigationMenu.addEventListener("transitionend", updateNavigationMenu);
-    }
 
     new LazyLoad({
         elements_selector: ".lazy"
