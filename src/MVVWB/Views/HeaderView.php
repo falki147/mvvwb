@@ -5,10 +5,11 @@
                 <?=MVVWB\TitleHelper::transform($name)?>
             </a>
         </h1>
-        <button class="navigation-button-mobile"
-                type="button" aria-label="<?=esc_attr__('Open Menu', 'mvvwb')?>"
-                aria-controls="navigation">
-        </button>
+        <a class="navigation-button-mobile"
+           href="#"
+           aria-label="<?=esc_attr__('Open Menu', 'mvvwb')?>"
+           aria-controls="navigation">
+        </a>
     </div>
     <nav class="navigation" id="navigation" aria-label="<?=esc_attr__('Main Menu', 'mvvwb')?>">
         <?=$navigation?>

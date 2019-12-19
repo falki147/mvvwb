@@ -9,7 +9,7 @@ function getChildrenHeight(element) {
     return height;
 }
 
-function openMenu() {
+function toggleMenu() {
     var navigationMenu = document.getElementById("navigation");
     var isActive = navigationMenu.classList.contains("navigation-opened");
 
@@ -46,7 +46,10 @@ function init() {
     var buttons = document.querySelectorAll(".header .navigation-button-mobile");
 
     for (var i = 0; i < buttons.length; ++i)
-        buttons[i].addEventListener("click", openMenu);
+        buttons[i].addEventListener("click", function (ev) {
+            toggleMenu();
+            ev.preventDefault();
+        });
 
     var navigationMenu = document.getElementById("navigation");
 
