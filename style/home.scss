@@ -38,8 +38,9 @@
         justify-content: space-between;
 
         .post {
-            width: 160px;
-            margin-left: 15px;
+            flex-grow: 1;
+            flex-basis: 100%;
+            margin-left: 50px;
             position: relative;
             margin-top: 54px;
 
