@@ -4,7 +4,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1">
-        <link href="<?=MVVWB_TEMPLATE_BASE?>style.css" rel="stylesheet" />
         <?php wp_head(); ?>
     </head>
     <body>

@@ -12,6 +12,8 @@ class RegisterHelper {
         register_nav_menu('header-menu', __('Header Menu', 'mvvwb'));
         register_nav_menu('home-menu', __('Home Menu', 'mvvwb'));
         register_nav_menu('footer-menu', __('Footer Menu', 'mvvwb'));
+
+        wp_enqueue_style('mvvwb-css', MVVWB_TEMPLATE_BASE . 'style.css');
     
         wp_enqueue_script('mvvwb-index', MVVWB_TEMPLATE_BASE . 'index.js');
 
