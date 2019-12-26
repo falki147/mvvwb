@@ -29,25 +29,25 @@
                     <?php endif?>
                 </h2>
 
-                <div class="title-break"></div>
+                <div class="title-break">
+                    <?php if ($putDate || $postData['location']):?>
+                        <div class="post-info">
+                            <?=$postData['location']?>
 
-                <?php if ($putDate || $postData['location']):?>
-                    <div class="post-info">
-                        <?=$postData['location']?>
+                            <?php if ($putDate):?>
+                                <span class="post-date-mobile">
+                                    <?php if ($postData['location']):?>
+                                        -
+                                    <?php endif?>
 
-                        <?php if ($putDate):?>
-                            <span class="post-date-mobile">
-                                <?php if ($postData['location']):?>
-                                    -
-                                <?php endif?>
-
-                                <time datetime="<?=$postData['time']('Y-m-d')?>">
-                                    <?=$postData['time']('j. M')?>
-                                </time>
-                            </span>
-                        <?php endif?>
-                    </div>
-                <?php endif?>
+                                    <time datetime="<?=$postData['time']('Y-m-d')?>">
+                                        <?=$postData['time']('j. M')?>
+                                    </time>
+                                </span>
+                            <?php endif?>
+                        </div>
+                    <?php endif?>
+                </div>
 
                 <?=$postData['content']?>
 
