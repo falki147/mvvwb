@@ -27,10 +27,6 @@ class RegisterHelper {
         register_nav_menu('home-menu', __('Home Menu', 'mvvwb'));
         register_nav_menu('footer-menu', __('Footer Menu', 'mvvwb'));
 
-        wp_enqueue_style('mvvwb-css', MVVWB_TEMPLATE_BASE . 'style.css');
-    
-        wp_enqueue_script('mvvwb-index', MVVWB_TEMPLATE_BASE . 'index.js');
-
         add_image_size('mvvwb-post', self::POST_IMAGE_WIDTH, self::POST_IMAGE_HEIGHT, true);
 
         // Adjust image size if any of the image dimensions are less then the specified width and
@@ -88,6 +84,14 @@ class RegisterHelper {
     }
 
     /**
+     * Adds the styles and scripts needed for the frontend
+     */
+    private static function addScripts() {
+        wp_enqueue_style('mvvwb', MVVWB_TEMPLATE_BASE . 'style.css');
+        wp_enqueue_script('mvvwb', MVVWB_TEMPLATE_BASE . 'index.js');
+    }
+
+    /**
      * Register hooks for initializing template
      */
     public static function register() {
@@ -100,6 +104,7 @@ class RegisterHelper {
         add_action('widgets_init', function () { self::widgetsInit(); });
         add_action('add_meta_boxes', function () { self::addMetaBoxes(); });
         add_action('save_post', function ($postID) { self::saveMetaBoxes($postID); });
+        add_action('wp_enqueue_scripts', function () { self::addScripts(); });
         
         // Create excerpt from first paragraph if it wasn't set by hand
         add_filter('wp_trim_excerpt', function ($text, $rawExcerpt) {
