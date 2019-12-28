@@ -53,7 +53,8 @@ function css() {
         .pipe(sass())
         .pipe(concat("style.css"))
         .pipe(postcss([ autoprefixer() ]))
-        .pipe(minifyCSS());
+        .pipe(minifyCSS())
+        .pipe(replace("{{version}}", package.version));
     
     if (writeSourcemap)
         stream = stream.pipe(sourcemaps.write("./"));
