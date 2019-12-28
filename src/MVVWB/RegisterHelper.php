@@ -113,7 +113,7 @@ class RegisterHelper {
      * Adds the styles and scripts needed for the frontend
      */
     private static function addScripts() {
-        wp_enqueue_style('mvvwb', MVVWB_TEMPLATE_BASE . 'style.css');
-        wp_enqueue_script('mvvwb', MVVWB_TEMPLATE_BASE . 'index.js');
+        wp_enqueue_style('mvvwb', MVVWB_TEMPLATE_BASE . 'style.css', [], MVVWB_TEMPLATE_VERSION);
+        wp_enqueue_script('mvvwb', MVVWB_TEMPLATE_BASE . 'index.js', [], MVVWB_TEMPLATE_VERSION);
     }
 }
