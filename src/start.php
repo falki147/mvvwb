@@ -10,7 +10,7 @@ if (!defined('MVVWB_TEMPLATE_BASE')) {
 
 if (!defined('MVVWB_TEMPLATE_VERSION')) {
     /** Version of this template */
-    define('MVVWB_TEMPLATE_VERSION', '1.0.0');
+    define('MVVWB_TEMPLATE_VERSION', '{{version}}');
 }
 
 if (!defined('MVVWB_TEMPLATE_VIEWS')) {
