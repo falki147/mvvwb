@@ -1,9 +1,23 @@
-<div class="home-widgets">
+<?php
+/**
+ * File which is used to render the HTML of the homepage
+ * 
+ * Following variables are passed to it:
+ * - $homeWidgets: Contains the HTML code of the widgets on the homepage
+ * - $menu: Contains the individual menu items of the home menu with title, url and text/description
+ * - $name: Contains the title of the whole website
+ */
+
+namespace MVVWB\Views;
+
+use MVVWB\TitleHelper;
+
+?><div class="home-widgets">
     <?=$homeWidgets?>
 </div>
 <div class="home">
     <h2 class="title">
-        <?=MVVWB\TitleHelper::transform($name)?>
+        <?=TitleHelper::transform($name)?>
     </h2>
     <div class="title-break"></div>
     <?php if ($menu): ?>

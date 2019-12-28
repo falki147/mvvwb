@@ -1,4 +1,15 @@
-<!doctype html>
+<?php
+/**
+ * File which is used to render everything
+ */
+
+namespace MVVWB\Views;
+
+use MVVWB\Controller\HeaderController;
+use MVVWB\Controller\ContentController;
+use MVVWB\Controller\FooterController;
+
+?><!doctype html>
 
 <html <?php language_attributes(); ?>>
     <head>
@@ -8,9 +19,9 @@
     </head>
     <body>
         <a class="skiplink" href="#main"><?=esc_html__('Go to Content', 'mvvwb')?></a>
-        <?php MVVWB\Controller\HeaderController::render(); ?>
-        <?php MVVWB\Controller\ContentController::render(); ?>
-        <?php MVVWB\Controller\FooterController::render(); ?>
+        <?php HeaderController::render(); ?>
+        <?php ContentController::render(); ?>
+        <?php FooterController::render(); ?>
         <?php wp_footer(); ?>
     </body>
 </html>

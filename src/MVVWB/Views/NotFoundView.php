@@ -1,4 +1,11 @@
-<div class="not-found">
+<?php
+/**
+ * File which is used to render the 404 page
+ */
+
+namespace MVVWB\Views;
+
+?><div class="not-found">
     <h1 class="title"><?=esc_html__('404 - Not Found', 'mvvwb')?></h1>
     <div class="title-break"></div>
     <?=

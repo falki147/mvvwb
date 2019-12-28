@@ -1,11 +1,25 @@
 <?php
+/**
+ * Defines RegisterHelper class
+ */
 
 namespace MVVWB;
 
+/**
+ * Provides functionality for registering menus, post thumbnail sizes, scripts, etc.
+ *
+ * This class is not intended to be intantiated
+ */
 class RegisterHelper {
+    /** Width of the post thumbnail/image */
     const POST_IMAGE_WIDTH = 1600;
+
+    /** Height of the post thumbnail/image */
     const POST_IMAGE_HEIGHT = 550;
 
+    /**
+     * Add menus, post thumbnail sizes, scripts, etc.
+     */
     private static function init() {
         add_theme_support('post-thumbnails');
 
@@ -42,6 +56,9 @@ class RegisterHelper {
         });
     }
 
+    /**
+     * Add wdigets on home page
+     */
     private static function widgetsInit() {
         register_sidebar([
             'name' => __('Home', 'mvvwb'),
@@ -51,14 +68,28 @@ class RegisterHelper {
         ]);
     }
 
+    /**
+     * Add metaboxes to wordpress
+     */
     private static function addMetaBoxes() {
         LocationMetabox::addMetabox();
     }
 
+    /**
+     * Save metaboxes
+     *
+     * This function will also be called even when the metabox itself isn't active. The data is
+     * taken from the $_POST variable.
+     *
+     * @param int $postID id of the post which was edited
+     */
     private static function saveMetaBoxes($postID) {
         LocationMetabox::saveMetabox($postID, $_POST);
     }
 
+    /**
+     * Register hooks for initializing template
+     */
     public static function register() {
         load_theme_textdomain('mvvwb');
         add_post_type_support('page', 'excerpt');
@@ -70,6 +101,7 @@ class RegisterHelper {
         add_action('add_meta_boxes', function () { self::addMetaBoxes(); });
         add_action('save_post', function ($postID) { self::saveMetaBoxes($postID); });
         
+        // Create excerpt from first paragraph if it wasn't set by hand
         add_filter('wp_trim_excerpt', function ($text, $rawExcerpt) {
             if(!$rawExcerpt) {
                 $text = get_the_content('');

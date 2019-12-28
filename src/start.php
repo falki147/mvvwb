@@ -1,19 +1,31 @@
 <?php
+/**
+ * Initializes base constants and sets up autoloading
+ */
 
-if (!defined('MVVWB_TEMPLATE_BASE'))
+if (!defined('MVVWB_TEMPLATE_BASE')) {
+    /** Base path of the template */
     define('MVVWB_TEMPLATE_BASE', get_template_directory_uri() . '/');
+}
 
-if (!defined('MVVWB_TEMPLATE_VERSION'))
+if (!defined('MVVWB_TEMPLATE_VERSION')) {
+    /** Version of this template */
     define('MVVWB_TEMPLATE_VERSION', '1.0.0');
+}
 
-if (!defined('MVVWB_TEMPLATE_VIEWS'))
+if (!defined('MVVWB_TEMPLATE_VIEWS')) {
+    /** Absolute path to the views */
     define('MVVWB_TEMPLATE_VIEWS', implode(DIRECTORY_SEPARATOR, [ __DIR__, 'MVVWB', 'Views', '' ]));
+}
 
-if (!defined('MVVWB_TEMPLATE_ADMIN_VIEWS'))
+if (!defined('MVVWB_TEMPLATE_ADMIN_VIEWS')) {
+    /** Absolute path to the admin views */
     define('MVVWB_TEMPLATE_ADMIN_VIEWS', implode(DIRECTORY_SEPARATOR, [ __DIR__, 'MVVWB', 'AdminViews', '' ]));
+}
 
 if (!defined('MVVWB_TEMPLATE_AUTOLOAD')) {
     spl_autoload_register(function ($class) {
+        // Only load classes from the "MVVWB" namespace
         if (strncmp('MVVWB', $class, 5) !== 0)
             return false;
 
@@ -31,5 +43,9 @@ if (!defined('MVVWB_TEMPLATE_AUTOLOAD')) {
         return false;
     });
 
+    /**
+     * Helper constant to determine if the autloading was set up or not
+     * @internal
+     */
     define('MVVWB_TEMPLATE_AUTOLOAD', '1');
 }

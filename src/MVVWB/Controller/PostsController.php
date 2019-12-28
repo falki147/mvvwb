@@ -1,10 +1,21 @@
 <?php
+/**
+ * Defines PostsController class
+ */
 
 namespace MVVWB\Controller;
 
 use MVVWB\LocationHelper;
 
+/**
+ * Class which helps rendering the posts
+ *
+ * This class is not intended to be intantiated
+ */
 class PostsController {
+    /**
+     * Renders the HTML of the posts to the output buffer
+     */
     public static function render() {
         $posts = [];
 
@@ -50,6 +61,14 @@ class PostsController {
         include MVVWB_TEMPLATE_VIEWS . 'PostsView.php';
     }
 
+    /**
+     * Filter the thumbnail HTML code so it works with lazy loading
+     * 
+     * It replaces the src attribute from the img-tag with data-src and appends the lazy class.
+     * 
+     * @param string $thumbnail the thumbnail HTML code
+     * @return string the modified HTML code
+     */
     private static function filterThumbnail($thumbnail) {
         $thumbnail = preg_replace_callback(
             '/(<img[^<]*)src=\"([^"]*)\"(.*>)/',

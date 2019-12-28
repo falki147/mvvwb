@@ -1,4 +1,17 @@
-<div class="posts">
+<?php
+/**
+ * File which is used to render the posts
+ * 
+ * Following variables are passed to it:
+ * - $posts: An array of post entries with thmbnail, link, title, location, content and time
+ * - $putDate: A boolean which indicates if the date should be included or not
+ * - $singular: A booolean indicating if it's a single post or multiple ones
+ * - $pagination: The HTML code of the pagination
+ */
+
+namespace MVVWB\Views;
+
+?><div class="posts">
     <?php foreach ($posts as $postData): ?>
         <article class="post" aria-label="<?=esc_attr__('Post', 'mvvwb')?>">
             <?php if ($postData['thumbnail']):?>
