@@ -1,7 +1,7 @@
 <?php
 /**
  * File which is used to render the posts
- * 
+ *
  * Following variables are passed to it:
  * - $posts: An array of post entries with thmbnail, link, title, location, content and time
  * - $putDate: A boolean which indicates if the date should be included or not

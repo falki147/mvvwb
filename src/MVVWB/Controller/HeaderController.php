@@ -18,7 +18,7 @@ class HeaderController {
         $navigation = wp_nav_menu(
             [ 'theme_location' => 'header-menu', 'depth' => 1, 'echo' => false ]
         );
-        
+
         $wpurl = get_bloginfo('wpurl');
         $name = get_bloginfo('name');
 

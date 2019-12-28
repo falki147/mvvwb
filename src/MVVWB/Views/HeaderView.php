@@ -1,7 +1,7 @@
 <?php
 /**
  * File which is used to render the header HTML
- * 
+ *
  * Following variables are passed to it:
  * - $navigation: Contains the header menu HTML code
  * - $wpurl: Contains the base URL of the site

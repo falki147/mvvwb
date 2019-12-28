@@ -55,7 +55,7 @@ function css() {
         .pipe(postcss([ autoprefixer() ]))
         .pipe(minifyCSS())
         .pipe(replace("{{version}}", package.version));
-    
+
     if (writeSourcemap)
         stream = stream.pipe(sourcemaps.write("./"));
 

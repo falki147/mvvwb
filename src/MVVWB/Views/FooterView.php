@@ -1,7 +1,7 @@
 <?php
 /**
  * File which is used to render the footer HTML
- * 
+ *
  * Following variables are passed to it:
  * - $navigation: Contains the footer menu HTML code
  */

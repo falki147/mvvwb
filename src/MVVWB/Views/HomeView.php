@@ -1,7 +1,7 @@
 <?php
 /**
  * File which is used to render the HTML of the homepage
- * 
+ *
  * Following variables are passed to it:
  * - $homeWidgets: Contains the HTML code of the widgets on the homepage
  * - $menu: Contains the individual menu items of the home menu with title, url and text/description

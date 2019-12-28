@@ -63,9 +63,9 @@ class PostsController {
 
     /**
      * Filter the thumbnail HTML code so it works with lazy loading
-     * 
+     *
      * It replaces the src attribute from the img-tag with data-src and appends the lazy class.
-     * 
+     *
      * @param string $thumbnail the thumbnail HTML code
      * @return string the modified HTML code
      */

@@ -26,7 +26,7 @@ class RegisterHelper {
         add_action('save_post', function ($postID) { self::saveMetaBoxes($postID); });
         add_action('wp_enqueue_scripts', function () { self::addScripts(); });
         add_action('after_setup_theme', function () { self::setup(); });
-        
+
         // Create excerpt from first paragraph if it wasn't set by hand
         add_filter('wp_trim_excerpt', function ($text, $rawExcerpt) {
             if(!$rawExcerpt) {
@@ -35,7 +35,7 @@ class RegisterHelper {
                 $text = excerpt_remove_blocks($text);
                 $text = substr($text, 0, strpos($text, '</p>') + 4);
             }
-        
+
             return $text;
         }, 10, 2);
 
@@ -51,7 +51,7 @@ class RegisterHelper {
                 $new_sizes['mvvwb-post']['width'] = self::POST_IMAGE_WIDTH * $factor;
                 $new_sizes['mvvwb-post']['height'] = self::POST_IMAGE_HEIGHT * $factor;
 			}
-			
+
 			return $new_sizes;
 		}, 10, 2);
 

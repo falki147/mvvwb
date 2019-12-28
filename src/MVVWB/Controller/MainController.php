@@ -13,7 +13,7 @@ namespace MVVWB\Controller;
 class MainController {
     /**
      * Renders the HTML of the whole page to the output buffer
-     * 
+     *
      * It combines the header, content and footer.
      */
     public static function render() {
