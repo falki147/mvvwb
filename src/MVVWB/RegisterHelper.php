@@ -18,16 +18,26 @@ class RegisterHelper {
     const POST_IMAGE_HEIGHT = 550;
 
     /**
-     * Add menus, post thumbnail sizes, scripts, etc.
+     * Register hooks for initializing template
      */
-    private static function init() {
-        add_theme_support('post-thumbnails');
-
-        register_nav_menu('header-menu', __('Header Menu', 'mvvwb'));
-        register_nav_menu('home-menu', __('Home Menu', 'mvvwb'));
-        register_nav_menu('footer-menu', __('Footer Menu', 'mvvwb'));
-
-        add_image_size('mvvwb-post', self::POST_IMAGE_WIDTH, self::POST_IMAGE_HEIGHT, true);
+    public static function register() {
+        add_action('widgets_init', function () { self::widgetsInit(); });
+        add_action('add_meta_boxes', function () { self::addMetaBoxes(); });
+        add_action('save_post', function ($postID) { self::saveMetaBoxes($postID); });
+        add_action('wp_enqueue_scripts', function () { self::addScripts(); });
+        add_action('after_setup_theme', function () { self::setup(); });
+        
+        // Create excerpt from first paragraph if it wasn't set by hand
+        add_filter('wp_trim_excerpt', function ($text, $rawExcerpt) {
+            if(!$rawExcerpt) {
+                $text = get_the_content('');
+                $text = strip_shortcodes($text);
+                $text = excerpt_remove_blocks($text);
+                $text = substr($text, 0, strpos($text, '</p>') + 4);
+            }
+        
+            return $text;
+        }, 10, 2);
 
         // Adjust image size if any of the image dimensions are less then the specified width and
         // height
@@ -53,7 +63,23 @@ class RegisterHelper {
     }
 
     /**
-     * Add wdigets on home page
+     * Setup theme features
+     */
+    private static function setup() {
+        load_theme_textdomain('mvvwb');
+        add_post_type_support('page', 'excerpt');
+        add_theme_support('title-tag');
+        add_theme_support('post-thumbnails');
+
+        add_image_size('mvvwb-post', self::POST_IMAGE_WIDTH, self::POST_IMAGE_HEIGHT, true);
+
+        register_nav_menu('header-menu', __('Header Menu', 'mvvwb'));
+        register_nav_menu('home-menu', __('Home Menu', 'mvvwb'));
+        register_nav_menu('footer-menu', __('Footer Menu', 'mvvwb'));
+    }
+
+    /**
+     * Add home page widgets entry
      */
     private static function widgetsInit() {
         register_sidebar([
@@ -89,33 +115,5 @@ class RegisterHelper {
     private static function addScripts() {
         wp_enqueue_style('mvvwb', MVVWB_TEMPLATE_BASE . 'style.css');
         wp_enqueue_script('mvvwb', MVVWB_TEMPLATE_BASE . 'index.js');
-    }
-
-    /**
-     * Register hooks for initializing template
-     */
-    public static function register() {
-        load_theme_textdomain('mvvwb');
-        add_post_type_support('page', 'excerpt');
-        add_theme_support('title-tag');
-        add_theme_support('post-thumbnails');
-
-        add_action('init', function () { self::init(); });
-        add_action('widgets_init', function () { self::widgetsInit(); });
-        add_action('add_meta_boxes', function () { self::addMetaBoxes(); });
-        add_action('save_post', function ($postID) { self::saveMetaBoxes($postID); });
-        add_action('wp_enqueue_scripts', function () { self::addScripts(); });
-        
-        // Create excerpt from first paragraph if it wasn't set by hand
-        add_filter('wp_trim_excerpt', function ($text, $rawExcerpt) {
-            if(!$rawExcerpt) {
-                $text = get_the_content('');
-                $text = strip_shortcodes($text);
-                $text = excerpt_remove_blocks($text);
-                $text = substr($text, 0, strpos($text, '</p>') + 4);
-            }
-        
-            return $text;
-        }, 10, 2);
     }
 }
