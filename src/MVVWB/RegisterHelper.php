@@ -41,19 +41,19 @@ class RegisterHelper {
 
         // Adjust image size if any of the image dimensions are less then the specified width and
         // height
-		add_filter('intermediate_image_sizes_advanced', function ($new_sizes, $image_meta) {
+        add_filter('intermediate_image_sizes_advanced', function ($new_sizes, $image_meta) {
             $factor = min(
                 $image_meta['width'] / self::POST_IMAGE_WIDTH,
                 $image_meta['height'] / self::POST_IMAGE_HEIGHT
             );
 
-			if (isset($new_sizes['mvvwb-post']) && $factor < 1) {
+            if (isset($new_sizes['mvvwb-post']) && $factor < 1) {
                 $new_sizes['mvvwb-post']['width'] = self::POST_IMAGE_WIDTH * $factor;
                 $new_sizes['mvvwb-post']['height'] = self::POST_IMAGE_HEIGHT * $factor;
-			}
+            }
 
-			return $new_sizes;
-		}, 10, 2);
+            return $new_sizes;
+        }, 10, 2);
 
         add_filter('image_size_names_choose',  function ($sizes) {
             return array_merge($sizes, [
