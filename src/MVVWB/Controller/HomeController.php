@@ -23,7 +23,10 @@ class HomeController {
         $homeWidgets = ob_get_clean();
 
         $locations = get_nav_menu_locations();
-        $menuObject = wp_get_nav_menu_object($locations['home-menu']);
+        
+        $menuObject = isset($locations['home-menu']) ?
+            wp_get_nav_menu_object($locations['home-menu']) : null;
+        
         $menu = [];
 
         if ($menuObject) {
