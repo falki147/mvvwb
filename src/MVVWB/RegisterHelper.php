@@ -26,6 +26,7 @@ class RegisterHelper {
         add_action('save_post', function ($postID) { self::saveMetaBoxes($postID); });
         add_action('wp_enqueue_scripts', function () { self::addScripts(); });
         add_action('after_setup_theme', function () { self::setup(); });
+        add_action('do_faviconico', function () { self::favicon(); });
 
         // Create excerpt from first paragraph if it wasn't set by hand
         add_filter('wp_trim_excerpt', function ($text, $rawExcerpt) {
@@ -115,5 +116,13 @@ class RegisterHelper {
     private static function addScripts() {
         wp_enqueue_style('mvvwb', MVVWB_TEMPLATE_BASE . 'style.css', [], MVVWB_TEMPLATE_VERSION);
         wp_enqueue_script('mvvwb', MVVWB_TEMPLATE_BASE . 'index.js', [], MVVWB_TEMPLATE_VERSION);
+    }
+
+    /**
+     * Outputs empty icon
+     */
+    private static function favicon() {
+        header('Content-Type: image/vnd.microsoft.icon');
+		exit;
     }
 }
