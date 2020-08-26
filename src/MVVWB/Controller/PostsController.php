@@ -36,12 +36,13 @@ class PostsController {
             $thumbnail = has_post_thumbnail() ? get_the_post_thumbnail(null, 'mvvwb-post') : '';
 
             $postData = [
-                'thumbnail' => self::filterThumbnail($thumbnail),
-                'link'      => get_permalink(),
-                'title'     => get_the_title(),
-                'location'  => LocationHelper::getLocation($postObject),
-                'content'   => $content,
-                'time'      => function ($fmt) use ($postObject) {
+                'thumbnail'  => self::filterThumbnail($thumbnail),
+                'link'       => get_permalink(),
+                'title'      => get_the_title(),
+                'location'   => LocationHelper::getLocation($postObject),
+                'content'    => $content,
+                'isSameYear' => get_the_time('Y', $postObject) === date('Y'),
+                'time'       => function ($fmt) use ($postObject) {
                     return get_the_time($fmt, $postObject);
                 }
             ];

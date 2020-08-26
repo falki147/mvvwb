@@ -28,7 +28,13 @@ namespace MVVWB\Views;
             <div class="post-content<?=$putDate?' post-has-date':''?><?=$postData['thumbnail'] ? ' has-thumbnail' : ''?>">
                 <?php if ($putDate):?>
                     <time class="post-date" datetime="<?=$postData['time']('Y-m-d')?>">
-                        <?=$postData['time']('j<\\sp\\a\\n>M</\\sp\\a\\n>')?>
+                        <?php if ($postData['isSameYear']): ?>
+                            <?=$postData['time']('j<\\sp\\a\\n>M</\\sp\\a\\n>')?>
+                        <?php else: ?>
+                            <?=$postData['time'](
+                                'j<\\sp\\a\\n>M</\\sp\\a\\n><\\sp\\a\\n>\'y</\\sp\\a\\n>')
+                            ?>
+                        <?php endif; ?>
                     </time>
                 <?php endif?>
 
@@ -54,7 +60,11 @@ namespace MVVWB\Views;
                                     <?php endif?>
 
                                     <time datetime="<?=$postData['time']('Y-m-d')?>">
-                                        <?=$postData['time']('j. M')?>
+                                        <?php if ($postData['isSameYear']): ?>
+                                            <?=$postData['time']('j. M')?>
+                                        <?php else: ?>
+                                            <?=$postData['time']('j. M Y')?>
+                                        <?php endif; ?>
                                     </time>
                                 </span>
                             <?php endif?>
