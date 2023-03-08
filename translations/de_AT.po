@@ -86,7 +86,7 @@ msgstr "MVVWB"
 
 #. Description of the theme
 msgid "This theme was built for the mvvwb.at site."
-msgstr "Dieses Theme wurde für speziell für mvvwb.at entwickelt."
+msgstr "Dieses Theme wurde speziell für mvvwb.at entwickelt."
 
 #. Author of the theme
 msgid "Florian Preinfalk"
