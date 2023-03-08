@@ -4,29 +4,31 @@
   "description": "Template for the mvvwb.at site",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch"
   },
   "author": "Florian Preinfalk",
   "license": "ISC",
   "dependencies": {
-    "vanilla-lazyload": "^12.5.1"
+    "vanilla-lazyload": "^17.8.3"
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.6",
-    "browserify": "^16.5.2",
-    "gettext-parser": "^4.0.4",
-    "gulp": "^4.0.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-csso": "^3.0.1",
-    "gulp-postcss": "^8.0.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-replace": "^1.0.0",
-    "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2",
-    "minimist": "^1.2.5",
-    "through2": "^3.0.2",
-    "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "autoprefixer": "^10.4.13",
+    "babel-loader": "^9.1.2",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.3",
+    "gettext-parser": "^6.0.0",
+    "mini-css-extract-plugin": "^2.7.3",
+    "postcss": "^8.4.21",
+    "postcss-loader": "^7.0.2",
+    "sass": "^1.58.3",
+    "sass-loader": "^13.2.0",
+    "string-replace-loader": "^3.1.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   }
 }
