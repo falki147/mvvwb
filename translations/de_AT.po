@@ -9,72 +9,93 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-10-12T14:09:23+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language: \n"
 "X-Generator: WP-CLI 2.3.0\n"
 "X-Domain: mvvwb\n"
 
-#: AdminViews/LocationMetaboxView.php:2
-#: LocationMetabox.php:11
+#: MVVWB/AdminViews/LocationMetaboxView.php:13
+#: MVVWB/LocationMetabox.php:29
 msgid "Location"
 msgstr "Ort"
 
-#: Controller/PostsController.php:44
+#: MVVWB/Controller/PostsController.php:58
 msgid "Back"
 msgstr "Zurück"
 
-#: Controller/PostsController.php:45
+#: MVVWB/Controller/PostsController.php:59
 msgid "Forward"
 msgstr "Weiter"
 
-#: RegisterHelper.php:9
+#: MVVWB/RegisterHelper.php:77
 msgid "Header Menu"
 msgstr "Headermenu"
 
-#: RegisterHelper.php:10
-#: Views/HomeView.php:10
+#: MVVWB/RegisterHelper.php:78
+#: MVVWB/Views/HomeView.php:24
 msgid "Home Menu"
 msgstr "Homemenu"
 
-#: RegisterHelper.php:11
+#: MVVWB/RegisterHelper.php:79
 msgid "Footer Menu"
 msgstr "Footermenu"
 
-#: RegisterHelper.php:19
+#: MVVWB/RegisterHelper.php:61
 msgid "MVVWB Post Image"
 msgstr "MVVWB Post Bild"
 
-#: RegisterHelper.php:26
+#: MVVWB/RegisterHelper.php:87
 msgid "Home"
 msgstr "Home"
 
-#: Views/HeaderView.php:9
+#: MVVWB/Views/HeaderView.php:24
 msgid "Open Menu"
 msgstr "Menü öffnen"
 
-#: Views/HeaderView.php:13
+#: MVVWB/Views/HeaderView.php:28
 msgid "Main Menu"
 msgstr "Hauptmenu"
 
-#: Views/HomeView.php:20
-#: Views/PostsView.php:57
+#: MVVWB/Views/HomeView.php:34
+#: MVVWB/Views/PostsView.php:86
 msgid "Continue..."
 msgstr "Weiter..."
 
-#: Views/MainView.php:13
+#: MVVWB/Views/MainView.php:21
 msgid "Go to Content"
 msgstr "Zum Inhalt springen"
 
-#: Views/NotFoundView.php:2
+#: MVVWB/Views/NotFoundView.php:9
 msgid "404 - Not Found"
 msgstr "404 - Seite nicht gefunden"
 
-#: Views/NotFoundView.php:5
+#: MVVWB/Views/NotFoundView.php:12
 msgid "It appears the page you were looking for doesn't exist. Sorry about that."
 msgstr "Es scheint, als ob die Seite die Sie öffnen wollten nicht existiert. Wir entschuldigen uns."
 
-#: Views/PostsView.php:3
+#: MVVWB/Views/PostsView.php:22
 msgid "Post"
 msgstr "Beitrag"
 
-#: Views/PostsView.php:9
+#: MVVWB/Views/PostsView.php:28
 msgid "Go to Post"
 msgstr "Zum Beitrag gehen"
+
+#. Theme Name of the theme
+msgid "MVVWB"
+msgstr "MVVWB"
+
+#. Description of the theme
+msgid "This theme was built for the mvvwb.at site."
+msgstr "Dieses Theme wurde für speziell für mvvwb.at entwickelt."
+
+#. Author of the theme
+msgid "Florian Preinfalk"
+msgstr "Florian Preinfalk"
+
+#: MVVWB/Views/PostsView.php:18
+msgid "Search"
+msgstr "Suchen"
+
+#: MVVWB/Views/PostsView.php:17
+msgid "Enter search term"
+msgstr "Suchbegriff eingeben"
