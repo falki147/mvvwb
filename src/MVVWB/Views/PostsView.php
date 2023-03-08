@@ -13,7 +13,7 @@ namespace MVVWB\Views;
 
 ?><div class="posts">
     <?php if (!$singular):?>
-        <form class="posts-search">
+        <form role="search" class="posts-search" method="get" action="<?=esc_url(home_url('/'))?>">
             <input type="search" placeholder="<?=esc_attr__('Enter search term', 'mvvwb')?>" name="s" value="<?=esc_attr($_GET['s'] ?? '')?>">
             <input type="submit" value="<?=esc_attr__('Search', 'mvvwb')?>">
         </form>
