@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .posts {
     background-color: $content-background-color;
     padding: 60px $padding-side 60px $padding-side;
@@ -30,7 +32,7 @@
 
                 .gallery {
                     position: relative;
-                    left: -$padding-date / 2;
+                    left: math.div(-$padding-date, 2);
                     right: 0;
                 }
             }

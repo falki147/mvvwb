@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .footer {
     $footer-height: 62px;
     $font-size: 11px;
@@ -35,7 +37,7 @@
             text-transform: uppercase;
             text-decoration: none;
             line-height: $font-size;
-            padding: ($footer-height - $font-size) / 2 0;
+            padding: math.div($footer-height - $font-size, 2) 0;
             display: inline-block;
             transition: color 0.2s linear;
 
@@ -57,7 +59,7 @@
     .copyright {
         font-size: $font-size;
         line-height: $font-size;
-        padding: ($footer-height - $font-size) / 2 0;
+        padding: math.div($footer-height - $font-size, 2) 0;
         color: #888888;
 
         a {
@@ -80,7 +82,7 @@
         padding-right: $padding-side-mobile;
 
         .navigation {
-            padding-top: ($footer-height - $font-size) / 2;
+            padding-top: math.div($footer-height - $font-size, 2);
 
             li, a {
                 display: block;
