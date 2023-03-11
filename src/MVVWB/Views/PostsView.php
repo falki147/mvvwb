@@ -82,7 +82,7 @@ namespace MVVWB\Views;
 
                 <?php if (!$singular):?>
                     <p>
-                        <a href="<?=esc_url($postData['link'])?>" class="post-continue">
+                        <a href="<?=esc_url($postData['link'])?>" class="button">
                             <?=esc_html__('Continue...', 'mvvwb')?>
                         </a>
                     </p>

@@ -69,26 +69,11 @@
                 text-align: initial;
             }
 
-            .post-continue {
+            .button {
                 position: absolute;
                 left: 0;
                 right: 0;
                 bottom: 0;
-                color: #ffffff;
-                text-transform: uppercase;
-                border: 1px solid #ffb1ae;
-                text-decoration: none;
-                font-size: 12px;
-                font-weight: 500;
-                line-height: 30px;
-                display: block;
-                text-align: center;
-                font-family: 'Raleway', Arial, sans-serif;
-                transition: border-color 0.2s linear;
-
-                &:hover, &:focus {
-                    border-color: #ffffff;
-                }
             }
         }
     }

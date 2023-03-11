@@ -1,4 +1,6 @@
-.wp-element-button {
+.button, .wp-element-button, input[type=submit] {
+    appearance: none;
+    background: none;
     color: #db4a37;
     text-transform: uppercase;
     border: 1px solid #db4a37;
@@ -11,13 +13,27 @@
     padding: 0 25px;
     transition: color 0.2s linear, border-color 0.2s linear;
     border-radius: 0;
+    cursor: pointer;
 
     &:visited {
-      color: #db4a37;
+        color: #db4a37;
     }
 
     &:hover, &:focus {
         border-color: #272727;
         color: #272727;
+    }
+
+    &.button-inverted {
+        color: #ffffff;
+        border: 1px solid #ffb1ae;
+
+        &:visited {
+            color: #ffffff;
+        }
+
+        &:hover, &:focus {
+            border-color: #ffffff;
+        }
     }
 }

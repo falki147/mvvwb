@@ -8,13 +8,16 @@ Text Domain: mvvwb
 */
 
 @import 'variables';
+
+@import 'button';
+@import 'form';
 @import 'header';
 @import 'home';
+@import 'input';
 @import 'posts';
 @import 'footer';
 @import 'notfound';
 @import 'raleway';
-@import 'wordpress';
 @import 'search';
 
 body {

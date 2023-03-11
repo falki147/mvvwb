@@ -30,7 +30,7 @@ use MVVWB\TitleHelper;
                         <div class="post-excerpt"><?=$item['text']?></div>
                     <?php endif ?>
 
-                    <a class="post-continue" href="<?=esc_url($item['url'])?>">
+                    <a class="button button-inverted" href="<?=esc_url($item['url'])?>">
                         <?=esc_html__('Continue...', 'mvvwb')?>
                     </a>
                 </div>
