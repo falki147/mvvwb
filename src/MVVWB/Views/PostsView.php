@@ -35,10 +35,10 @@ namespace MVVWB\Views;
                 <?php if ($putDate):?>
                     <time class="post-date" datetime="<?=$postData['time']('Y-m-d')?>">
                         <?php if ($postData['isSameYear']): ?>
-                            <?=$postData['time']('j<\\sp\\a\\n>M</\\sp\\a\\n>')?>
+                            <?=$postData['time']('j<\\s\\p\\a\\n>M</\\s\\p\\a\\n>')?>
                         <?php else: ?>
                             <?=$postData['time'](
-                                'j<\\sp\\a\\n>M</\\sp\\a\\n><\\sp\\a\\n>\'y</\\sp\\a\\n>')
+                                'j<\\s\\p\\a\\n>M</\\s\\p\\a\\n><\\s\\p\\a\\n>\'y</\\s\\p\\a\\n>')
                             ?>
                         <?php endif; ?>
                     </time>
