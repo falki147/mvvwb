@@ -6,5 +6,5 @@ isn't customizable because it was only developed for this specific site.
 ## Building
 ```
 npm install
-gulp --env=<production|development> --dest=<destination folder>
+npm run build:prod
 ```
